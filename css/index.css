@@ -26,7 +26,7 @@
 		--color-ink: #ebebeb;
 		--color-muted: #adadad;
 		--color-wash: rgb(255 255 255 / 0.14);
-		--background-color: #1c1b1a;
+		--background-color: #2d2b2a;
 		--text-color: var(--color-ink);
 		--text-color-link: var(--color-ink);
 		--focus-ring: 2px solid #ebebeb;
@@ -295,7 +295,7 @@ h2 {
 	display: grid;
 	gap: 1.5rem;
 	margin-block: 5rem;
-	padding-block: 3.5rem;
+	padding-block: 3.5rem 0;
 	color: #ebebeb;
 	background: #1c1b1a;
 	box-shadow: 0 0 0 100vmax #1c1b1a;
@@ -386,6 +386,8 @@ h2 {
 
 .showcase__stage {
 	min-width: 0;
+	max-height: 32rem;
+	overflow: hidden;
 }
 
 .showcase__frame {
