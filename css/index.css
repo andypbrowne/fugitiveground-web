@@ -48,6 +48,7 @@
 }
 
 html {
+	overflow-x: clip;
 	overflow-y: scroll;
 }
 
@@ -188,9 +189,9 @@ main :first-child {
 h1 {
 	font-size: clamp(2.25rem, 6vw, 3.25rem);
 	font-weight: 600;
+	font-variation-settings: "wdth" 60, "wght" 600;
 	line-height: 1.15;
 	margin-block: 0 1rem;
-	max-width: 18ch;
 }
 
 h2 {
@@ -265,6 +266,11 @@ h2 {
 	display: grid;
 	gap: 1.5rem;
 	margin-block: 5rem;
+	padding-block: 3.5rem;
+	color: #ebebeb;
+	background: #1c1b1a;
+	box-shadow: 0 0 0 100vmax #1c1b1a;
+	clip-path: inset(0 -100vmax);
 }
 
 .showcase__tabs {
@@ -281,7 +287,7 @@ h2 {
 	align-items: start;
 	padding: 0.7rem 1rem;
 	border-radius: 999px;
-	background: var(--color-wash);
+	background: rgb(255 255 255 / 0.12);
 	cursor: pointer;
 }
 
@@ -290,7 +296,7 @@ h2 {
 }
 
 .showcase__tab:has(.showcase__input:focus-visible) {
-	outline: var(--focus-ring);
+	outline: 2px solid #ebebeb;
 	outline-offset: 3px;
 }
 
@@ -311,8 +317,8 @@ h2 {
 	height: 1.25rem;
 	margin-block-start: 0.1rem;
 	border-radius: 50%;
-	border: 1px solid var(--color-muted);
-	color: var(--color-muted);
+	border: 1px solid #adadad;
+	color: #adadad;
 	font-size: 1rem;
 	line-height: 1;
 }
@@ -342,7 +348,7 @@ h2 {
 .showcase__detail {
 	display: none;
 	grid-column: 2;
-	color: var(--color-muted);
+	color: #adadad;
 }
 
 .showcase__tab:has(.showcase__input:checked) .showcase__detail {
