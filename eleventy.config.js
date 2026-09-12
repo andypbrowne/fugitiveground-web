@@ -14,6 +14,7 @@ export default async function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
+		"./node_modules/suncalc/index.js": "/js/suncalc.js",
 	});
 
 	eleventyConfig.addWatchTarget("css/**/*.css");

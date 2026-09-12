@@ -10,21 +10,22 @@ eleventyNavigation:
 	<p class="lede">Fugitive Ground is a time and place everyday beginning one hour before sunset and ending one hour after sunset wherever you are. The shifting light marks place, transience, and the edge of day.</p>
 
 	<section class="window-card" aria-label="The daily window">
-		<p class="window-card__status">The two hours around sunset</p>
+		<p class="window-card__status" data-window-status aria-live="polite">The two hours around sunset</p>
 		<dl class="window-card__times">
 			<div>
 				<dt>Start</dt>
-				<dd>sunset − 1h</dd>
+				<dd data-window-start>sunset − 1h</dd>
 			</div>
 			<div>
 				<dt>Sunset</dt>
-				<dd>sunset</dd>
+				<dd data-window-sunset>sunset</dd>
 			</div>
 			<div>
 				<dt>End</dt>
-				<dd>sunset + 1h</dd>
+				<dd data-window-end>sunset + 1h</dd>
 			</div>
 		</dl>
+		<button type="button" class="window-card__action" data-window-locate>Use my location</button>
 	</section>
 
 	{% if app.appStoreURL %}
@@ -88,3 +89,4 @@ eleventyNavigation:
 		</ul>
 	</section>
 </article>
+<script type="module" src="/js/window-card.js"></script>

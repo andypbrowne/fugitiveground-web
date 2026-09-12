@@ -245,7 +245,26 @@ h2 {
 
 .window-card__times dd {
 	margin: 0.25rem 0 0;
+	font-size: 2rem;
 	font-weight: 600;
+	font-variation-settings: "wdth" 60, "wght" 600;
+	line-height: 1.15;
+}
+
+.window-card__action {
+	margin-block-start: 1.25rem;
+	padding: 0.45rem 0.95rem;
+	border: 1px solid var(--color-ink);
+	border-radius: 999px;
+	background: transparent;
+	color: var(--color-ink);
+	font: inherit;
+	cursor: pointer;
+}
+
+.window-card__action:disabled {
+	opacity: 0.6;
+	cursor: wait;
 }
 
 .store-link,
