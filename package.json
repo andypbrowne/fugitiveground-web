@@ -1,7 +1,7 @@
 {
 	"name": "fugitiveground-web",
 	"version": "9.0.0",
-	"description": "A starter repository for a blog web site using the Eleventy site generator.",
+	"description": "Marketing and support site for the Fugitive Ground iOS app.",
 	"type": "module",
 	"scripts": {
 		"build": "npx @11ty/eleventy",
@@ -18,9 +18,8 @@
 		"url": "git://github.com/11ty/eleventy-base-blog.git"
 	},
 	"author": {
-		"name": "Zach Leatherman",
-		"email": "zachleatherman@gmail.com",
-		"url": "https://zachleat.com/"
+		"name": "Andy Browne",
+		"url": "https://andypbrowne.com/"
 	},
 	"license": "MIT",
 	"engines": {

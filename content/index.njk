@@ -1,29 +1,63 @@
----js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+layout: layouts/home.njk
+date: 2026-09-12
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+<article class="home">
+	<h1>A time and place each day</h1>
+	<p class="lede">Fugitive Ground is a time and place everyday beginning one hour before sunset and ending one hour after sunset wherever you are. The shifting light marks place, transience, and the edge of day.</p>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+	<section class="window-card" aria-label="The daily window">
+		<p class="window-card__status">The two hours around sunset</p>
+		<dl class="window-card__times">
+			<div>
+				<dt>Start</dt>
+				<dd>sunset − 1h</dd>
+			</div>
+			<div>
+				<dt>Sunset</dt>
+				<dd>sunset</dd>
+			</div>
+			<div>
+				<dt>End</dt>
+				<dd>sunset + 1h</dd>
+			</div>
+		</dl>
+	</section>
 
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
+	{% if app.appStoreURL %}
+	<p><a class="store-link" href="{{ app.appStoreURL }}">Get Fugitive Ground on the App Store</a></p>
+	{% else %}
+	<p class="store-soon">Coming soon on the App Store</p>
+	{% endif %}
 
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+	<section class="features" aria-label="Features">
+		<article class="feature">
+			<div class="feature__copy">
+				<h2>Sun and moon</h2>
+				<p>Data to inspire new rituals</p>
+			</div>
+			<div class="feature__frame" role="img" aria-label="Placeholder for Sun and moon">Sun and moon</div>
+		</article>
+		<article class="feature">
+			<div class="feature__copy">
+				<h2>Journal</h2>
+				<p>Reflect on your intention, noticing, and practice</p>
+			</div>
+			<div class="feature__frame" role="img" aria-label="Placeholder for Journal">Journal</div>
+		</article>
+	</section>
+
+	<section class="note">
+		<h2>The name</h2>
+		<p>The name and practice started as a collaboration in 2014. <a href="https://andypbrowne.com/blog/fugitive-ground/">A short note from then</a> is on Andy’s site. This iOS app is a later form of the same window: one place, two hours, the edge of day.</p>
+		<ul class="credits">
+			<li>Inconsolata typeface</li>
+			<li>SunCalc by Vladimir Agafonkin</li>
+			<li>NASA moon phase art and descriptions</li>
+			<li>MapKit</li>
+		</ul>
+	</section>
+</article>
