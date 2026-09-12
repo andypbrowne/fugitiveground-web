@@ -228,12 +228,8 @@ h2 {
 }
 
 .window-card__status {
-	margin: 0 0 1.25rem;
+	margin: 0.25rem 0 1.25rem;
 	color: var(--color-muted);
-}
-
-.window-card__date:not([hidden]) + .window-card__status {
-	margin-block-start: 0.25rem;
 }
 
 .window-card__times {

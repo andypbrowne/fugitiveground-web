@@ -24,6 +24,7 @@ let lastPhase = "";
 let placeRequest = 0;
 
 if (button && dateEl && status && live && startEl && sunsetEl && endEl && placeEl) {
+	showDate(new Date());
 	button.addEventListener("click", locate);
 	document.addEventListener("visibilitychange", () => {
 		if (!dayWindow) return;
@@ -72,8 +73,7 @@ function onPosition(position) {
 	startEl.textContent = formatTime(start);
 	sunsetEl.textContent = formatTime(sunset);
 	endEl.textContent = formatTime(end);
-	dateEl.hidden = false;
-	dateEl.textContent = formatDate(sunset);
+	showDate(sunset);
 	startTicking();
 }
 
@@ -146,8 +146,11 @@ function clearWindow() {
 	stopTicking();
 	dayWindow = null;
 	lastPhase = "";
-	dateEl.hidden = true;
-	dateEl.textContent = "";
+	showDate(new Date());
+}
+
+function showDate(date) {
+	dateEl.textContent = formatDate(date);
 }
 
 function startTicking() {
