@@ -15,7 +15,7 @@ This page covers the Fugitive Ground iOS app and this website. They are separate
 
 These pages are static. There are no accounts, forms, comments, or analytics pixels.
 
-This site does not set cookies. The live sunset times on the home page run in your browser after you ask to use your location. Coordinates stay in the browser and are not sent to a server.
+This site does not set cookies. The live sunset times on the home page run in your browser after you ask to use your location. A place name is looked up from those coordinates by [BigDataCloud](https://www.bigdatacloud.com/) so the card can say where the window is. Coordinates are not stored on this site.
 
 The site is hosted on [Netlify](https://www.netlify.com/). Like most hosts, Netlify may keep ordinary request logs such as IP address, user agent, and the page requested, for security and operations. See [Netlify’s privacy policy](https://www.netlify.com/privacy/).
 

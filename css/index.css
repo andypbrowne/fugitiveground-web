@@ -276,6 +276,11 @@ h2 {
 	cursor: wait;
 }
 
+.window-card__place {
+	margin-block-start: 1.25rem;
+	color: var(--color-muted);
+}
+
 .store-link,
 .store-soon {
 	display: inline-block;

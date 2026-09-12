@@ -16,12 +16,14 @@ const startEl = document.querySelector("[data-window-start]");
 const sunsetEl = document.querySelector("[data-window-sunset]");
 const endEl = document.querySelector("[data-window-end]");
 const button = document.querySelector("[data-window-locate]");
+const placeEl = document.querySelector("[data-window-place]");
 
 let dayWindow = null;
 let tickId = 0;
 let lastPhase = "";
+let placeRequest = 0;
 
-if (button && dateEl && status && live && startEl && sunsetEl && endEl) {
+if (button && dateEl && status && live && startEl && sunsetEl && endEl && placeEl) {
 	button.addEventListener("click", locate);
 	document.addEventListener("visibilitychange", () => {
 		if (!dayWindow) return;
@@ -46,11 +48,12 @@ function locate() {
 
 function onPosition(position) {
 	button.disabled = false;
-	button.textContent = "Use my location";
 
 	const { latitude, longitude } = position.coords;
 	const times = getTimes(new Date(), latitude, longitude);
 	const sunset = times.sunset;
+	hideButton();
+	lookupPlace(latitude, longitude);
 
 	if (!(sunset instanceof Date) || Number.isNaN(sunset.getTime())) {
 		clearWindow();
@@ -75,11 +78,68 @@ function onPosition(position) {
 }
 
 function fail() {
-	button.disabled = false;
-	button.textContent = "Try again";
 	clearWindow();
+	showButton("Try again");
 	status.textContent = UNAVAILABLE;
 	announce(UNAVAILABLE);
+}
+
+function hideButton() {
+	button.hidden = true;
+	button.disabled = false;
+	button.textContent = "Use my location";
+}
+
+function showButton(label) {
+	placeRequest += 1;
+	placeEl.hidden = true;
+	placeEl.textContent = "";
+	button.hidden = false;
+	button.disabled = false;
+	button.textContent = label;
+}
+
+function lookupPlace(latitude, longitude) {
+	const request = ++placeRequest;
+	placeEl.hidden = true;
+	placeEl.textContent = "";
+
+	const url = new URL("https://api.bigdatacloud.net/data/reverse-geocode-client");
+	url.searchParams.set("latitude", String(latitude));
+	url.searchParams.set("longitude", String(longitude));
+	url.searchParams.set("localityLanguage", "en");
+
+	fetch(url)
+		.then((response) => (response.ok ? response.json() : null))
+		.then((data) => {
+			if (request !== placeRequest || !data) return;
+			const name = formatPlace(data);
+			if (!name) return;
+			placeEl.textContent = name;
+			placeEl.hidden = false;
+		})
+		.catch(() => {});
+}
+
+function formatPlace(data) {
+	const city = text(data.locality) || text(data.city);
+	const region = regionCode(data.principalSubdivisionCode) || text(data.principalSubdivision);
+	const country = text(data.countryName);
+	const code = text(data.countryCode);
+
+	if (city && region && code === "US") return `${city}, ${region}`;
+	if (city && country && code && code !== "US") return `${city}, ${country}`;
+	return city || region || country;
+}
+
+function text(value) {
+	return typeof value === "string" ? value.trim() : "";
+}
+
+function regionCode(value) {
+	const raw = text(value);
+	if (!raw) return "";
+	return raw.includes("-") ? raw.slice(raw.lastIndexOf("-") + 1) : raw;
 }
 
 function clearWindow() {
