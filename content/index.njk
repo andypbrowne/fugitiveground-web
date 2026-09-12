@@ -33,21 +33,48 @@ eleventyNavigation:
 	<p class="store-soon">Coming soon on the App Store</p>
 	{% endif %}
 
-	<section class="features" aria-label="Features">
-		<article class="feature">
-			<div class="feature__copy">
-				<h2>Sun and moon</h2>
-				<p>Data to inspire new rituals</p>
-			</div>
-			<div class="feature__frame" role="img" aria-label="Placeholder for Sun and moon">Sun and moon</div>
-		</article>
-		<article class="feature">
-			<div class="feature__copy">
-				<h2>Journal</h2>
-				<p>Reflect on your intention, noticing, and practice</p>
-			</div>
-			<div class="feature__frame" role="img" aria-label="Placeholder for Journal">Journal</div>
-		</article>
+	<section class="showcase">
+		<h2 class="visually-hidden">Features</h2>
+		<div class="showcase__tabs" role="radiogroup" aria-label="Features">
+			<label class="showcase__tab">
+				<input class="showcase__input" id="feature-sun" type="radio" name="feature" value="sun" checked>
+				<span class="showcase__mark" aria-hidden="true"></span>
+				<span class="showcase__title">Sun and moon</span>
+				<span class="showcase__detail">Sun and moon data</span>
+			</label>
+			<label class="showcase__tab">
+				<input class="showcase__input" id="feature-detail" type="radio" name="feature" value="detail">
+				<span class="showcase__mark" aria-hidden="true"></span>
+				<span class="showcase__title">Expandable detail</span>
+				<span class="showcase__detail">Evening light and the moon</span>
+			</label>
+			<label class="showcase__tab">
+				<input class="showcase__input" id="feature-journal" type="radio" name="feature" value="journal">
+				<span class="showcase__mark" aria-hidden="true"></span>
+				<span class="showcase__title">Journal</span>
+				<span class="showcase__detail">Your data is yours only</span>
+			</label>
+			<label class="showcase__tab">
+				<input class="showcase__input" id="feature-entry" type="radio" name="feature" value="entry">
+				<span class="showcase__mark" aria-hidden="true"></span>
+				<span class="showcase__title">Journal entry</span>
+				<span class="showcase__detail">Mindful reflection</span>
+			</label>
+		</div>
+		<div class="showcase__stage">
+			<figure class="showcase__frame" data-panel="sun">
+				<img src="/img/fg-01.png" alt="The Fugitive Ground time card with start, sunset, and end" width="456" height="942" eleventy:ignore>
+			</figure>
+			<figure class="showcase__frame" data-panel="detail">
+				<img src="/img/fg-02.png" alt="Expanded moon phase and times on the time card" width="456" height="942" eleventy:ignore>
+			</figure>
+			<figure class="showcase__frame" data-panel="journal">
+				<img src="/img/fg-03.png" alt="A private journal list of entries on the device" width="456" height="942" eleventy:ignore>
+			</figure>
+			<figure class="showcase__frame" data-panel="entry">
+				<img src="/img/fg-04.png" alt="A journal entry with date, place, and a note" width="456" height="942" eleventy:ignore>
+			</figure>
+		</div>
 	</section>
 
 	<section class="note">
