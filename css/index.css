@@ -195,7 +195,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.15rem;
+	font-size: 1.5rem;
 	font-weight: 600;
 	margin-block: 2rem 0.5rem;
 }
@@ -272,9 +272,28 @@ h2 {
 	cursor: wait;
 }
 
+.window-card__hint {
+	margin-block-start: 0.75rem;
+	font-size: 0.9rem;
+	color: var(--color-muted);
+}
+
 .window-card__place {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 	margin-block-start: 1.25rem;
 	color: var(--color-muted);
+}
+
+.window-card__place[hidden] {
+	display: none;
+}
+
+.window-card__place-icon {
+	flex-shrink: 0;
+	width: 1em;
+	height: 1em;
 }
 
 .store-link,

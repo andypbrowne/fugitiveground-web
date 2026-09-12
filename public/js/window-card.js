@@ -16,6 +16,8 @@ const startEl = document.querySelector("[data-window-start]");
 const sunsetEl = document.querySelector("[data-window-sunset]");
 const endEl = document.querySelector("[data-window-end]");
 const button = document.querySelector("[data-window-locate]");
+const hintEl = document.querySelector("[data-window-hint]");
+const placeRow = document.querySelector("[data-window-place-row]");
 const placeEl = document.querySelector("[data-window-place]");
 
 let dayWindow = null;
@@ -23,7 +25,7 @@ let tickId = 0;
 let lastPhase = "";
 let placeRequest = 0;
 
-if (button && dateEl && status && live && startEl && sunsetEl && endEl && placeEl) {
+if (button && dateEl && status && live && startEl && sunsetEl && endEl && hintEl && placeRow && placeEl) {
 	showDate(new Date());
 	button.addEventListener("click", locate);
 	document.addEventListener("visibilitychange", () => {
@@ -88,21 +90,21 @@ function hideButton() {
 	button.hidden = true;
 	button.disabled = false;
 	button.textContent = "Use my location";
+	hintEl.hidden = true;
 }
 
 function showButton(label) {
 	placeRequest += 1;
-	placeEl.hidden = true;
-	placeEl.textContent = "";
+	clearPlace();
 	button.hidden = false;
 	button.disabled = false;
 	button.textContent = label;
+	hintEl.hidden = false;
 }
 
 function lookupPlace(latitude, longitude) {
 	const request = ++placeRequest;
-	placeEl.hidden = true;
-	placeEl.textContent = "";
+	clearPlace();
 
 	const url = new URL("https://api.bigdatacloud.net/data/reverse-geocode-client");
 	url.searchParams.set("latitude", String(latitude));
@@ -116,9 +118,14 @@ function lookupPlace(latitude, longitude) {
 			const name = formatPlace(data);
 			if (!name) return;
 			placeEl.textContent = name;
-			placeEl.hidden = false;
+			placeRow.hidden = false;
 		})
 		.catch(() => {});
+}
+
+function clearPlace() {
+	placeRow.hidden = true;
+	placeEl.textContent = "";
 }
 
 function formatPlace(data) {
