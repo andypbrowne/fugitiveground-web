@@ -296,18 +296,22 @@ h2 {
 	height: 1em;
 }
 
-.store-link,
-.store-soon {
+.store-link {
 	display: inline-block;
 	margin-block: 0.5rem 0;
 	padding: 0.55rem 1.1rem;
 	border-radius: 999px;
-	background: var(--color-wash);
+	background: var(--color-ink);
+	color: var(--background-color);
 	text-decoration: none;
+	font-weight: 600;
+	font-variation-settings: "wdth" 90, "wght" 600;
 }
 
-.store-soon {
-	color: var(--color-muted);
+a.store-link:hover,
+a.store-link:active {
+	background: var(--color-brand);
+	color: #fff;
 }
 
 .showcase {

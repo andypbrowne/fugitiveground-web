@@ -38,9 +38,10 @@ eleventyNavigation:
 	</section>
 
 	{% if app.appStoreURL %}
-	<p><a class="store-link" href="{{ app.appStoreURL }}">Get Fugitive Ground on the App Store</a></p>
+	<p><a class="store-link" href="{{ app.appStoreURL }}"> Download on the App Store</a></p>
 	{% else %}
-	<p class="store-soon">Coming soon on the App Store</p>
+	<p class="store-link"> Download on the App Store</p>
+	<p class="store-soon" style="font-size: smaller;">Coming soon on the AppleApp Store</p>
 	{% endif %}
 
 	<section class="showcase">
@@ -61,8 +62,8 @@ eleventyNavigation:
 			<label class="showcase__tab">
 				<input class="showcase__input" id="feature-journal" type="radio" name="feature" value="journal">
 				<span class="showcase__mark" aria-hidden="true"></span>
-				<span class="showcase__title">Notes from the two hours</span>
-				<span class="showcase__detail">A practice of awareness, on this device</span>
+				<span class="showcase__title">Journal entries from the two hours</span>
+				<span class="showcase__detail">A practice of awareness, on this device, the data is yours only</span>
 			</label>
 			<label class="showcase__tab">
 				<input class="showcase__input" id="feature-entry" type="radio" name="feature" value="entry">
@@ -88,7 +89,7 @@ eleventyNavigation:
 	</section>
 
 	<section class="note">
-		<h2>The name</h2>
+		<h2>Origins</h2>
 		<p>The name and practice started as a collaboration in 2014. <a href="https://andypbrowne.com/blog/fugitive-ground/">A short note from then</a> is on Andy’s site. This iOS app is a later form of the same window: one place, two hours, the edge of day.</p>
 		<ul class="credits">
 			<li>Inconsolata typeface</li>
