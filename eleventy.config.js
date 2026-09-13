@@ -15,6 +15,8 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
 		"./node_modules/suncalc/index.js": "/js/suncalc.js",
+		"./node_modules/@fontsource-variable/inconsolata/files/inconsolata-latin-wdth-normal.woff2":
+			"/fonts/Inconsolata-Variable.woff2",
 	});
 
 	eleventyConfig.addWatchTarget("css/**/*.css");
