@@ -27,8 +27,8 @@ eleventyNavigation:
 				<dd data-window-end>Sunset +1 hour</dd>
 			</div>
 		</dl>
-		<button type="button" class="window-card__action" data-window-locate>Use my location</button>
-		<p class="window-card__hint" data-window-hint>Givesa preview of what the app offers</p>
+		<button type="button" class="window-card__action" data-window-locate aria-describedby="window-hint">Use my location</button>
+		<p class="window-card__hint" id="window-hint" data-window-hint>Givesa preview of what the app offers</p>
 		<p class="window-card__place" data-window-place-row hidden>
 			<svg class="window-card__place-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
 				<path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/>
@@ -74,16 +74,16 @@ eleventyNavigation:
 		</div>
 		<div class="showcase__stage">
 			<figure class="showcase__frame" data-panel="sun">
-				<img src="/img/fg-01.png" alt="The Fugitive Ground time card with start, sunset, and end" width="456" height="942" eleventy:ignore>
+				<img src="/img/fg-01.png" alt="The Fugitive Ground time card with start, sunset, and end" width="456" height="942" fetchpriority="high" eleventy:ignore>
 			</figure>
 			<figure class="showcase__frame" data-panel="detail">
-				<img src="/img/fg-02.png" alt="Expanded moon phase and times on the time card" width="456" height="942" eleventy:ignore>
+				<img src="/img/fg-02.png" alt="Expanded moon phase and times on the time card" width="456" height="942" loading="lazy" decoding="async" eleventy:ignore>
 			</figure>
 			<figure class="showcase__frame" data-panel="journal">
-				<img src="/img/fg-03.png" alt="A private journal list of entries on the device" width="456" height="942" eleventy:ignore>
+				<img src="/img/fg-03.png" alt="A private journal list of entries on the device" width="456" height="942" loading="lazy" decoding="async" eleventy:ignore>
 			</figure>
 			<figure class="showcase__frame" data-panel="entry">
-				<img src="/img/fg-04.png" alt="A journal entry with date, place, and a note" width="456" height="942" eleventy:ignore>
+				<img src="/img/fg-04.png" alt="A journal entry with date, place, and a note" width="456" height="942" loading="lazy" decoding="async" eleventy:ignore>
 			</figure>
 		</div>
 	</section>

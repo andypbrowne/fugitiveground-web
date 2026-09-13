@@ -8,6 +8,7 @@
 }
 
 :root {
+	color-scheme: light dark;
 	--font-family: Inconsolata, ui-monospace, monospace;
 	--color-brand: #ed2125;
 	--color-ink: #1f1f1f;
@@ -25,7 +26,7 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		--color-ink: #ebebeb;
-		--color-muted: #adadad;
+		--color-muted: #c4c4c4;
 		--color-wash: rgb(255 255 255 / 0.14);
 		--background-color: #2d2b2a;
 		--text-color: var(--color-ink);
@@ -83,6 +84,12 @@ li {
 	line-height: 1.5;
 }
 
+.lede,
+.page p,
+.note p {
+	text-wrap: pretty;
+}
+
 a[href] {
 	color: var(--text-color-link);
 }
@@ -90,6 +97,8 @@ a[href] {
 a[href]:hover,
 a[href]:active {
 	color: var(--text-color-link-active);
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
 }
 
 :focus-visible {
@@ -193,12 +202,14 @@ h1 {
 	font-variation-settings: "wdth" 60, "wght" 600;
 	line-height: 1.15;
 	margin-block: 0 1rem;
+	text-wrap: balance;
 }
 
 h2 {
 	font-size: 1.5rem;
 	font-weight: 600;
 	margin-block: 2rem 0.5rem;
+	text-wrap: balance;
 }
 
 .note h2 {
@@ -483,5 +494,21 @@ footer a[href]:hover {
 	.window-card__times {
 		grid-template-columns: 1fr;
 		gap: 1rem;
+	}
+}
+
+@media (forced-colors: active) {
+	.window-card,
+	.store-link,
+	.showcase__tab {
+		border: 1px solid CanvasText;
+	}
+
+	.window-card__action {
+		border: 1px solid ButtonText;
+	}
+
+	:focus-visible {
+		outline: 3px solid Highlight;
 	}
 }

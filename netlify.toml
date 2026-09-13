@@ -12,6 +12,23 @@
 		Referrer-Policy = "strict-origin-when-cross-origin"
 		X-Frame-Options = "DENY"
 		Permissions-Policy = "camera=(), microphone=(), payment=()"
+		Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+		Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+	for = "/fonts/*"
+	[headers.values]
+		Cache-Control = "public, max-age=604800"
+
+[[headers]]
+	for = "/img/*"
+	[headers.values]
+		Cache-Control = "public, max-age=604800"
+
+[[headers]]
+	for = "/js/*"
+	[headers.values]
+		Cache-Control = "public, max-age=604800"
 
 [[redirects]]
 	from = "/about"
