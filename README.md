@@ -6,6 +6,8 @@ Production: [https://fugitiveground.andypbrowne.com](https://fugitiveground.andy
 
 App Store Support URL: `/privacy/`
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a46d9be-2732-4cf8-a459-7be89d9d494b/deploy-status)](https://app.netlify.com/projects/fugitiveground-web/deploys)
+
 ## Local
 
 ```

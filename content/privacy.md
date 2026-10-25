@@ -1,15 +1,15 @@
 ---
 title: Privacy
-description: How Fugitive Ground and this site handle location, notifications, journal entries, and other data.
-date: 2026-09-12
+description: How Fugitive Ground and this site handle location, notifications, journal entries, Insights, and other data.
+date: 2026-10-25
 eleventyNavigation:
   key: Privacy
   order: 2
 ---
 
-Last updated 12 September 2026.
+Last updated 25 October 2026.
 
-This page covers the Fugitive Ground iOS app and this website. They are separate. The app does not send your location or journal to this site.
+This page covers the Fugitive Ground iOS app and this website. They are separate. The app does not send your location, journal, or Insights to this site.
 
 ## This website
 
@@ -35,7 +35,17 @@ Notifications are optional and scheduled on the device. They remind you about th
 
 ### Journal
 
-Journal entries are stored on your device, tied to a date and place. They do not go to a Fugitive Ground server. This website never sees them.
+Journal entries are stored on your device, tied to a date and place. When you are signed in to iCloud, they may sync through your iCloud storage. They do not go to a Fugitive Ground server. This website never sees them.
+
+You can export your journal as Markdown from the device. That export stays with you unless you share it yourself.
+
+### Insights
+
+When enough journal entries exist, Insights may appear in the journal. Insights name recurring places and tags, and may offer a short reading of the set and a line linking a new note to an earlier one.
+
+That work is drawn from your own entries and worked out on this device. Nothing is sent to a Fugitive Ground server or this website for Insights. When an on-device model is unavailable, Insights still shows structured patterns without model prose.
+
+Journal sync through your iCloud (when signed in) is separate from Insights. You can turn Insights off in Settings.
 
 ### What the app does not do
 

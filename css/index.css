@@ -472,6 +472,16 @@ footer p + p {
 	margin-block-start: 0.4rem;
 }
 
+.netlify-status {
+	margin-block-start: 1rem;
+}
+
+.netlify-status img {
+	display: block;
+	height: 1.25rem;
+	width: auto;
+}
+
 footer a[href] {
 	color: var(--color-muted);
 	text-decoration: none;
